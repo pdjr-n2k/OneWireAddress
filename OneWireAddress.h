@@ -28,7 +28,7 @@ class tOneWireAddress {
     /**
      * @brief Set this address object to a specified value.
      * 
-     * @param address  - byte array used to specify the new address.
+     * @param address  - 8-byte array used to specify the new address.
      */
     void setAddress(unsigned char *address);
 

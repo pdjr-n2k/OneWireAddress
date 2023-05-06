@@ -56,7 +56,7 @@ void setAddress (unsigned char * address)
 Set this address object to a specified value. 
 
 **Parameters**
-- `address` - byte array used to specify the new address. 
+- `address` - 8-byte array used to specify the new address. 
 
 ---
 
