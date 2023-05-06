@@ -1,5 +1,5 @@
 #include <string.h>
-#include "OneWireAddress.h"
+#include "tOneWireAddress.h"
 
 tOneWireAddress::tOneWireAddress(unsigned char *address) {
   if (address) {
