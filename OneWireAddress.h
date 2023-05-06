@@ -11,19 +11,19 @@
  * 
  * Device addresses on a OneWire bus are 64-bit binary values.
  */
-class tOneWireAddress {
+class OneWireAddress {
 
   public:
 
     /**
-     * @brief Construct a new tOneWireAddress object.
+     * @brief Construct a new OneWireAddress object.
      * 
      * If address is not supplied, then the newly instantiated
      * address is set to 0xffffffffffffffff.
      * 
      * @param address - byte array used to specify an initial address.
      */
-    tOneWireAddress(unsigned char *address = 0);
+    OneWireAddress(unsigned char *address = 0);
     
     /**
      * @brief Set this address object to a specified value.
@@ -67,7 +67,7 @@ class tOneWireAddress {
      * @param address - the address to be compared.
      * @return int - the result returned by ```memcmp``` (0 if the addresses are equal).
      */
-    int compare(tOneWireAddress *address);
+    int compare(OneWireAddress *address);
 
   private:
     unsigned char address[8];

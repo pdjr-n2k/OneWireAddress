@@ -1,7 +1,7 @@
 #include <string.h>
 #include "tOneWireAddress.h"
 
-tOneWireAddress::tOneWireAddress(unsigned char *address) {
+OneWireAddress::OneWireAddress(unsigned char *address) {
   if (address) {
     this->setAddress(address);
   } else {
@@ -9,30 +9,30 @@ tOneWireAddress::tOneWireAddress(unsigned char *address) {
   }
 }
 
-void tOneWireAddress::setAddress(unsigned char *address) {
+void OneWireAddress::setAddress(unsigned char *address) {
   memcpy(this->address, address, 8);
 }
 
-void tOneWireAddress::clearAddress() {
+void OneWireAddress::clearAddress() {
   for (int i = 0; i < 8; i++) {
     this->address[i] = 0xff;
   }
 }
 
-unsigned char *tOneWireAddress::getAddress() {
+unsigned char *OneWireAddress::getAddress() {
   return(this->address);
 }
 
-void tOneWireAddress::setByte(int index, unsigned char value) {
+void OneWireAddress::setByte(int index, unsigned char value) {
   if ((index > 0) && (index < 8)) {
     this->address[index] = value;
   }
 }
 
-unsigned char tOneWireAddress::getByte(int index) {
+unsigned char OneWireAddress::getByte(int index) {
   return(((index >= 0) && (index < 8))?this->address[index]:0xff);
 }
 
-int tOneWireAddress::compare(tOneWireAddress *address) {
+int OneWireAddress::compare(OneWireAddress *address) {
   return(memcmp(this->address, address, 8));
 }
