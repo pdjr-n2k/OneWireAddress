@@ -7,7 +7,9 @@
 #define ONE_WIRE_ADDRESS
 
 /**
- * @brief ADT representing a OneWire device address. 
+ * @brief ADT representing a OneWire device address.
+ * 
+ * Device addresses on a OneWire bus are 64-bit binary values.
  */
 class tOneWireAddress {
 
@@ -17,21 +19,21 @@ class tOneWireAddress {
      * @brief Construct a new tOneWireAddress object.
      * 
      * If address is not supplied, then the newly instantiated
-     * address is set to [ 0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff ].
+     * address is set to 0xffffffffffffffff.
      * 
      * @param address - byte array used to specify an initial address.
      */
     tOneWireAddress(unsigned char *address = 0);
     
     /**
-     * @brief Set the address object to a specified value.
+     * @brief Set this address object to a specified value.
      * 
-     * @param address  - byte array used to specify an initial address.
+     * @param address  - byte array used to specify the new address.
      */
     void setAddress(unsigned char *address);
 
     /**
-     * @brief Get the address object value. 
+     * @brief Get this address object as a character array.
      * 
      * @return unsigned char*  - pointer to the address value as an
      * eight byte array.
@@ -39,12 +41,12 @@ class tOneWireAddress {
     unsigned char *getAddress();
     
     /**
-     * @brief Clear the address object the default value.
+     * @brief Set this  address object to 0xffffffffffffffff.
      */
     void clearAddress();
 
     /**
-     * @brief Set a specified byte of the address to a specified value.
+     * @brief Set a byte in this address to a specified value.
      * 
      * @param index - index of the byte to be written.
      * @param value - the value to be assigned.
@@ -52,7 +54,7 @@ class tOneWireAddress {
     void setByte(int index, unsigned char value);
 
     /**
-     * @brief Get a specified byte from the address.
+     * @brief Get a specified byte from this address.
      * 
      * @param index - index of the byte to be retrieved.
      * @return unsigned char - the value the specified byte.
@@ -60,10 +62,10 @@ class tOneWireAddress {
     unsigned char getByte(int index);
 
     /**
-     * @brief Compare two OneWire address objects.
+     * @brief Compare two OneWire address objects using ```memcmp```.
      * 
      * @param address - the address to be compared.
-     * @return int - 0 if the addresses are equal.
+     * @return int - the result returned by ```memcmp``` (0 if the addresses are equal).
      */
     int compare(tOneWireAddress *address);
 

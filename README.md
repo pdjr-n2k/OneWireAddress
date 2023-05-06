@@ -7,7 +7,7 @@ ADT representing a OneWire device address.
 ```c++
 tOneWireAddress (unsigned char * address = 0)
 ```
-Construct a new tOneWireAddress object. If address is not supplied, then the newly instantiated address is set to [ 0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff ].
+Construct a new tOneWireAddress object. If address is not supplied, then the newly instantiated address is set to 0xffffffffffffffff.
 
 **Parameters**
 - `address` - byte array used to specify an initial address. 
@@ -17,20 +17,20 @@ Construct a new tOneWireAddress object. If address is not supplied, then the new
 ```c++
 int compare (tOneWireAddress * address)
 ```
-Compare two OneWire address objects. 
+Compare two OneWire address objects using \fCmemcmp. 
 
 **Parameters**
 - `address` - the address to be compared. 
 
 **Returns:**
-- int - 0 if the addresses are equal. 
+- int - the result returned by \fCmemcmp (0 if the addresses are equal). 
 
 ---
 
 ```c++
 unsigned char* getAddress ()
 ```
-Get the address object value. 
+Get this address object as a character array. 
 
 **Returns:**
 - unsigned char* - pointer to the address value as an eight byte array. 
@@ -40,7 +40,7 @@ Get the address object value.
 ```c++
 unsigned char getByte (int index)
 ```
-Get a specified byte from the address. 
+Get a specified byte from this address. 
 
 **Parameters**
 - `index` - index of the byte to be retrieved. 
@@ -53,17 +53,17 @@ Get a specified byte from the address.
 ```c++
 void setAddress (unsigned char * address)
 ```
-Set the address object to a specified value. 
+Set this address object to a specified value. 
 
 **Parameters**
-- `address` - byte array used to specify an initial address. 
+- `address` - byte array used to specify the new address. 
 
 ---
 
 ```c++
 void setByte (int index, unsigned char value)
 ```
-Set a specified byte of the address to a specified value. 
+Set a byte in this address to a specified value. 
 
 **Parameters**
 - `index` - index of the byte to be written. 
