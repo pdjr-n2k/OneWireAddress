@@ -16,7 +16,7 @@ class tOneWireAddress {
     /**
      * @brief Construct a new tOneWireAddress object.
      * 
-     * If @ref address is not supplied, then the newly instantiated
+     * If address is not supplied, then the newly instantiated
      * address is set to [ 0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff ].
      * 
      * @param address - byte array used to specify an initial address.
